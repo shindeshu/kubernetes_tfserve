@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cats-and-dogs-model
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: cats-and-dogs-model
+  template:
+    metadata:
+      labels:
+        app: cats-and-dogs-model
+    spec:
+      containers:
+      - name: cats-and-dogs-model
+        image: cats-and-dogs-model:v1
+        resources:
+          limits:
+            memory: "512Mi"
+            cpu: "0.5"
+        ports:
+        - containerPort: 8501

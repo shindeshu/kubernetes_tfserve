@@ -1,10 +1,10 @@
 version: "3.9"
 services:
-  cats-and-dogs:
+  model:
     image: cats-and-dogs-model:v1
   gateway:
-    image: cats-and-dogs-gateway:v1
+    image: cats-and-dogs-gateway:002
     environment:
-      - TF_SERVING_HOST=cats-and-dogs:8500
+      - TF_SERVING_HOST=model:8501
     ports:
       - "9696:9696"
